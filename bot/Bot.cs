@@ -18,31 +18,31 @@ namespace BotApp
         string Oauth;
         public void bot()
         {
-            channel = Console.ReadLine();
-            Oauth = Console.ReadLine();
-            creds = new ConnectionCredentials(channel, Oauth);
+            this.channel = Console.ReadLine();
+            this.Oauth = Console.ReadLine();
+            this.creds = new ConnectionCredentials(channel, Oauth);
 
 
 
         }
         public void Connect(bool isLogging)
         {
-            client = new TwitchClient();
+            this.client = new TwitchClient();
             Console.WriteLine("Loaflover_");
-            client.Initialize(creds, channel);
-            client.OnConnected += Client_OnConnected;
+            this.client.Initialize(creds, channel);
+            this.client.OnConnected += Client_OnConnected;
 
             Console.WriteLine("[Bot]: Connecting...");
 
             if (isLogging)
-                client.OnLog += Client_OnLog;
+                this.client.OnLog += Client_OnLog;
 
-            client.OnError += Client_OnError;
-            client.OnMessageReceived += Client_OnMessageReceived;
-            client.OnChatCommandReceived += Client_OnChatCommandReceived;
-            client.AddChatCommandIdentifier('$');
+            this.client.OnError += Client_OnError;
+            this.client.OnMessageReceived += Client_OnMessageReceived;
+            this.client.OnChatCommandReceived += Client_OnChatCommandReceived;
+            this.client.AddChatCommandIdentifier('$');
 
-            client.Connect();
+            this.client.Connect();
 
         }
 
@@ -52,25 +52,25 @@ namespace BotApp
             {
                 case "roll":
                     string msg = $"{e.Command.ChatMessage.DisplayName} Rolled {RndInt(1, 6)}";
-                    client.SendMessage(channel, msg);
+                    this.client.SendMessage(channel, msg);
                     Console.WriteLine($"[Bot]: {msg}");
                     break;
                 case "social":
-                    client.SendMessage(channel, "Here are all my social links! YouTube: http://bit.ly/3p01GJD Twitter: https://bit.ly/369XH5f Discord: http://bit.ly/36h7zMm.");
+                    this.client.SendMessage(channel, "Here are all my social links! YouTube: http://bit.ly/3p01GJD Twitter: https://bit.ly/369XH5f Discord: http://bit.ly/36h7zMm.");
                     break;
                 case "help":
-                    client.SendMessage(channel, "There is a panel with all commands and a link to the github repo below, please check it out!");
+                    this.client.SendMessage(channel, "There is a panel with all commands and a link to the github repo below, please check it out!");
                     break;
                 case "hello":
-                    client.SendMessage(channel, "hi " + e.Command.ChatMessage.DisplayName + ", how are you?");
+                    this.client.SendMessage(channel, "hi " + e.Command.ChatMessage.DisplayName + ", how are you?");
                     break;
                 case "sus":
                     if (e.Command.ChatMessage.DisplayName == "LoafLover_")
                     {
-                        client.SendMessage(channel, e.Command.ChatMessage.DisplayName + ", you sussy enough. yay!");
+                        this.client.SendMessage(channel, e.Command.ChatMessage.DisplayName + ", you sussy enough. yay!");
                         break;
                     }
-                    client.SendMessage(channel, e.Command.ChatMessage.DisplayName + ", you are not sussy enough. go to horny jail immediatly.");
+                    this.client.SendMessage(channel, e.Command.ChatMessage.DisplayName + ", you are not sussy enough. go to horny jail immediatly.");
                     break;
 
             }
@@ -80,7 +80,7 @@ namespace BotApp
                 switch (e.Command.CommandText.ToLower())
                 {
                     case "hi":
-                        client.SendMessage(channel, "ayo whats up loaf");
+                        this.client.SendMessage(channel, "ayo whats up loaf");
                         break;
                 }
             }
@@ -120,7 +120,7 @@ namespace BotApp
         {
             Console.WriteLine("[Bot]: Disonnecting and closing application");
 
-            client.Disconnect();
+            this.client.Disconnect();
         }
 
         private int RndInt(int min, int max)
@@ -133,28 +133,7 @@ namespace BotApp
 
             return value;
         }
-        public void wait(int milliseconds)
-        {
-            var timer1 = new System.Windows.Forms.Timer();
-            if (milliseconds == 0 || milliseconds < 0) return;
-
-            // Console.WriteLine("start wait timer");
-            timer1.Interval = milliseconds;
-            timer1.Enabled = true;
-            timer1.Start();
-
-            timer1.Tick += (s, e) =>
-            {
-                timer1.Enabled = false;
-                timer1.Stop();
-                // Console.WriteLine("stop wait timer");
-            };
-
-            while (timer1.Enabled)
-            {
-                Application.DoEvents();
-            }
-        }
+  
     }
 
 }
