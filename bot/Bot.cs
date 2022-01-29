@@ -9,16 +9,17 @@ using System.Windows.Forms;
 
 namespace BotApp
 {
-    internal class Bot
+    public class Bot
     {
         ConnectionCredentials creds;
         TwitchClient client;
-
         string channel;
         string Oauth;
-        public void bot()
+        public Bot()
         {
+            Console.WriteLine("insert channel name:");
             this.channel = Console.ReadLine();
+            Console.WriteLine("insert Oauth key:");
             this.Oauth = Console.ReadLine();
             this.creds = new ConnectionCredentials(channel, Oauth);
 
@@ -29,7 +30,7 @@ namespace BotApp
         {
             this.client = new TwitchClient();
             Console.WriteLine("Loaflover_");
-            this.client.Initialize(creds, channel);
+            this.client.Initialize(this.creds, this.channel);
             this.client.OnConnected += Client_OnConnected;
 
             Console.WriteLine("[Bot]: Connecting...");
@@ -45,7 +46,10 @@ namespace BotApp
             this.client.Connect();
 
         }
-
+        public void send_message(string message)
+        {
+            this.client.SendMessage(channel, message);
+        }
         private void Client_OnChatCommandReceived(object sender, OnChatCommandReceivedArgs e)
         {
             switch (e.Command.CommandText.ToLower())

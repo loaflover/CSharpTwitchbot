@@ -58,7 +58,6 @@ C:\Users\nir\Desktop\CSharpTwitchbot\bot\bin\Debug\net5.0-windows\TwitchLib.Comm
 C:\Users\nir\Desktop\CSharpTwitchbot\bot\bin\Debug\net5.0-windows\TwitchLib.PubSub.dll
 C:\Users\nir\Desktop\CSharpTwitchbot\bot\obj\Debug\net5.0-windows\BotApp.csproj.AssemblyReference.cache
 C:\Users\nir\Desktop\CSharpTwitchbot\bot\obj\Debug\net5.0-windows\BotApp.Form1.resources
-C:\Users\nir\Desktop\CSharpTwitchbot\bot\obj\Debug\net5.0-windows\BotApp.TwitchInfo.resources
 C:\Users\nir\Desktop\CSharpTwitchbot\bot\obj\Debug\net5.0-windows\BotApp.csproj.GenerateResource.cache
 C:\Users\nir\Desktop\CSharpTwitchbot\bot\obj\Debug\net5.0-windows\BotApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\nir\Desktop\CSharpTwitchbot\bot\obj\Debug\net5.0-windows\BotApp.AssemblyInfoInputs.cache

@@ -20,8 +20,8 @@ namespace BotApp
         public static Bot shit;
         static void Main()
         {
-            
             shit = new Bot();
+          
 
             shit.Connect(false);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);

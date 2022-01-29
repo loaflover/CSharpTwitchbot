@@ -20,7 +20,7 @@ namespace BotApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-           Program.shit.client.SendMessage(TwitchInfo.ChannelName, textBox1.Text);
+           Program.shit.send_message(textBox1.Text);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
