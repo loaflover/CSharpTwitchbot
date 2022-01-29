@@ -11,19 +11,25 @@ namespace BotApp
 {
     internal class Bot
     {
-        ConnectionCredentials creds = new ConnectionCredentials(TwitchInfo.ChannelName, TwitchInfo.BotToken);
-        public TwitchClient client;
+        ConnectionCredentials creds;
+        TwitchClient client;
 
-        char nl = Convert.ToChar(11);
+        string channel;
+        string Oauth;
+        public void bot()
+        {
+            channel = Console.ReadLine();
+            Oauth = Console.ReadLine();
+            creds = new ConnectionCredentials(channel, Oauth);
 
-        private string[] _bannedWords = new string[3] { "big follow", "retard", "js is best" };
 
 
-        internal void Connect(bool isLogging)
+        }
+        public void Connect(bool isLogging)
         {
             client = new TwitchClient();
             Console.WriteLine("Loaflover_");
-            client.Initialize(creds, TwitchInfo.ChannelName);
+            client.Initialize(creds, channel);
             client.OnConnected += Client_OnConnected;
 
             Console.WriteLine("[Bot]: Connecting...");
@@ -37,7 +43,7 @@ namespace BotApp
             client.AddChatCommandIdentifier('$');
 
             client.Connect();
-            
+
         }
 
         private void Client_OnChatCommandReceived(object sender, OnChatCommandReceivedArgs e)
@@ -46,25 +52,25 @@ namespace BotApp
             {
                 case "roll":
                     string msg = $"{e.Command.ChatMessage.DisplayName} Rolled {RndInt(1, 6)}";
-                    client.SendMessage(TwitchInfo.ChannelName, msg);
+                    client.SendMessage(channel, msg);
                     Console.WriteLine($"[Bot]: {msg}");
                     break;
                 case "social":
-                    client.SendMessage(TwitchInfo.ChannelName, "Here are all my social links! YouTube: http://bit.ly/3p01GJD Twitter: https://bit.ly/369XH5f Discord: http://bit.ly/36h7zMm.");
+                    client.SendMessage(channel, "Here are all my social links! YouTube: http://bit.ly/3p01GJD Twitter: https://bit.ly/369XH5f Discord: http://bit.ly/36h7zMm.");
                     break;
                 case "help":
-                    client.SendMessage(TwitchInfo.ChannelName, "There is a panel with all commands and a link to the github repo below, please check it out!");
+                    client.SendMessage(channel, "There is a panel with all commands and a link to the github repo below, please check it out!");
                     break;
                 case "hello":
-                    client.SendMessage(TwitchInfo.ChannelName, "hi " + e.Command.ChatMessage.DisplayName + ", how are you?");
+                    client.SendMessage(channel, "hi " + e.Command.ChatMessage.DisplayName + ", how are you?");
                     break;
                 case "sus":
                     if (e.Command.ChatMessage.DisplayName == "LoafLover_")
                     {
-                        client.SendMessage(TwitchInfo.ChannelName, e.Command.ChatMessage.DisplayName + ", you sussy enough. yay!");
+                        client.SendMessage(channel, e.Command.ChatMessage.DisplayName + ", you sussy enough. yay!");
                         break;
                     }
-                    client.SendMessage(TwitchInfo.ChannelName, e.Command.ChatMessage.DisplayName + ", you are not sussy enough. go to horny jail immediatly.");
+                    client.SendMessage(channel, e.Command.ChatMessage.DisplayName + ", you are not sussy enough. go to horny jail immediatly.");
                     break;
 
             }
@@ -74,7 +80,7 @@ namespace BotApp
                 switch (e.Command.CommandText.ToLower())
                 {
                     case "hi":
-                        client.SendMessage(TwitchInfo.ChannelName, "ayo whats up loaf");
+                        client.SendMessage(channel, "ayo whats up loaf");
                         break;
                 }
             }
@@ -82,13 +88,14 @@ namespace BotApp
 
         private void Client_OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {
-            for (int i = 0; i < _bannedWords.Length; i++)
-            {
-                if (e.ChatMessage.Message.ToLower().Contains(_bannedWords[i]))
-                {
-                    client.BanUser(TwitchInfo.ChannelName, e.ChatMessage.Username);
-                }
-            }
+            //if you want to, this is to remove banned words. make sure to ADD A NEW VARIABLE OF TYPE ARREY CALLED _bannedwords AND TO ADD YOUR BANNED WORDS
+            //for (int i = 0; i < _bannedWords.Length; i++)
+            //{
+            //    if (e.ChatMessage.Message.ToLower().Contains(_bannedWords[i]))
+            //    {
+            //        client.BanUser(channel, e.ChatMessage.Username);
+            //    }
+            //}
             Console.WriteLine($"[{e.ChatMessage.DisplayName}]: {e.ChatMessage.Message}");
 
         }
@@ -151,3 +158,10 @@ namespace BotApp
     }
 
 }
+       
+
+        
+
+
+        
+

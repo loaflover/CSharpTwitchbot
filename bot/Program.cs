@@ -17,7 +17,6 @@ namespace BotApp
     static class Program
     {
       
-        //[STAThread]
         public static Bot shit;
         static void Main()
         {
@@ -33,10 +32,7 @@ namespace BotApp
             Console.ReadLine();
 
             shit.Disconnect();
-            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Form1());
+           
 
 
         }
