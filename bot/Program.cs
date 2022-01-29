@@ -16,9 +16,7 @@ namespace BotApp
 {
     static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+      
         //[STAThread]
         public static Bot shit;
         static void Main()
