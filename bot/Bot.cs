@@ -6,17 +6,24 @@ using TwitchLib.Client.Extensions;
 using TwitchLib.Client.Models;
 using TwitchLib.Communication.Events;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace BotApp
 {
     public class Bot
     {
+        
         ConnectionCredentials creds;
         TwitchClient client;
         string channel;
         string Oauth;
         public Bot()
         {
+
+            [DllImport("kernel32.dll", SetLastError = true)]
+            [return: MarshalAs(UnmanagedType.Bool)]
+            static extern bool AllocConsole();
+            AllocConsole();
             Console.WriteLine("insert channel name:");
             this.channel = Console.ReadLine();
             Console.WriteLine("insert Oauth key:");
