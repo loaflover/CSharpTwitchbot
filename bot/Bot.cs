@@ -19,7 +19,7 @@ namespace BotApp
         string Oauth;
         public Bot()
         {
-
+            //here the bot sets the key and the channel name. in the future, the bot willsave those credentials in registry.
             [DllImport("kernel32.dll", SetLastError = true)]
             [return: MarshalAs(UnmanagedType.Bool)]
             static extern bool AllocConsole();
@@ -59,21 +59,13 @@ namespace BotApp
         }
         private void Client_OnChatCommandReceived(object sender, OnChatCommandReceivedArgs e)
         {
+            //set example commands. one is of a roll command, the other is a "sus" command that can tell the diference between the senders.
             switch (e.Command.CommandText.ToLower())
             {
-                case "roll":
+                case "exampleRoll":
                     string msg = $"{e.Command.ChatMessage.DisplayName} Rolled {RndInt(1, 6)}";
                     this.client.SendMessage(channel, msg);
                     Console.WriteLine($"[Bot]: {msg}");
-                    break;
-                case "social":
-                    this.client.SendMessage(channel, "Here are all my social links! YouTube: http://bit.ly/3p01GJD Twitter: https://bit.ly/369XH5f Discord: http://bit.ly/36h7zMm.");
-                    break;
-                case "help":
-                    this.client.SendMessage(channel, "There is a panel with all commands and a link to the github repo below, please check it out!");
-                    break;
-                case "hello":
-                    this.client.SendMessage(channel, "hi " + e.Command.ChatMessage.DisplayName + ", how are you?");
                     break;
                 case "sus":
                     if (e.Command.ChatMessage.DisplayName == "LoafLover_")
@@ -85,12 +77,12 @@ namespace BotApp
                     break;
 
             }
-
+            //here would be the "owner" only commands. i didnt have an idea of what to write, so i just set this to a default command.
             if (e.Command.ChatMessage.DisplayName == "LoafLover_")
             {
                 switch (e.Command.CommandText.ToLower())
                 {
-                    case "hi":
+                    case "example2":
                         this.client.SendMessage(channel, "ayo whats up loaf");
                         break;
                 }
@@ -107,6 +99,8 @@ namespace BotApp
             //        client.BanUser(channel, e.ChatMessage.Username);
             //    }
             //}
+
+            //log all messages in console. not needed for later builds, as i will have a seperate chat window.
             Console.WriteLine($"[{e.ChatMessage.DisplayName}]: {e.ChatMessage.Message}");
 
         }
@@ -136,6 +130,7 @@ namespace BotApp
 
         private int RndInt(int min, int max)
         {
+            //rnd function for random command
             int value;
 
             Random rnd = new Random();
