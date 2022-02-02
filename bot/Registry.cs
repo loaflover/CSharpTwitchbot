@@ -13,6 +13,10 @@ namespace BotApp
         {
             //checks if a value with that name exists, if no, make a new one with a default value
             RegistryKey reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\Loaflover\\TwitchBot");
+            if(reg == null)
+            {
+                Registry.CurrentUser.CreateSubKey("\\SOFTWARE\\Loaflover\\TwitchBot");
+            }
             if (!reg.GetValueNames().Contains(name))
             {
                 reg.SetValue(name, defaultvalue);
@@ -27,6 +31,10 @@ namespace BotApp
         {
             //sets a config value
             RegistryKey reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\Loaflover\\TwitchBot");
+            if (reg == null)
+            {
+                Registry.CurrentUser.CreateSubKey("\\SOFTWARE\\Loaflover\\TwitchBot");
+            }
             reg.SetValue(name, value);
         }
         public static void delete_all_data()
