@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bohdan\\Desktop\\CSharpTwitchbot\\bot\\BotApp.csproj": {}
+    "C:\\Users\\flata\\Documents\\GitHub\\CSharpTwitchbot\\bot\\BotApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bohdan\\Desktop\\CSharpTwitchbot\\bot\\BotApp.csproj": {
+    "C:\\Users\\flata\\Documents\\GitHub\\CSharpTwitchbot\\bot\\BotApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bohdan\\Desktop\\CSharpTwitchbot\\bot\\BotApp.csproj",
+        "projectUniqueName": "C:\\Users\\flata\\Documents\\GitHub\\CSharpTwitchbot\\bot\\BotApp.csproj",
         "projectName": "BotApp",
-        "projectPath": "C:\\Users\\bohdan\\Desktop\\CSharpTwitchbot\\bot\\BotApp.csproj",
-        "packagesPath": "C:\\Users\\bohdan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bohdan\\Desktop\\CSharpTwitchbot\\bot\\obj\\",
+        "projectPath": "C:\\Users\\flata\\Documents\\GitHub\\CSharpTwitchbot\\bot\\BotApp.csproj",
+        "packagesPath": "C:\\Users\\flata\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\flata\\Documents\\GitHub\\CSharpTwitchbot\\bot\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\bohdan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\flata\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,24 +63,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.13, 5.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -85,7 +71,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
