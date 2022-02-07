@@ -30,12 +30,15 @@ namespace BotApp
         public static void set_config_option(string name, string value)
         {
             //sets a config value
-            RegistryKey reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\Loaflover\\TwitchBot");
-            if (reg == null)
+            
+            if (Registry.CurrentUser.OpenSubKey("SOFTWARE\\Loaflover\\TwitchBot") == null)
             {
-                Registry.CurrentUser.CreateSubKey("\\SOFTWARE\\Loaflover\\TwitchBot");
+                Registry.CurrentUser.CreateSubKey("SOFTWARE\\Loaflover\\TwitchBot");
             }
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Loaflover\\TwitchBot", true);
+
             reg.SetValue(name, value);
+            reg.Close();
         }
         public static void delete_all_data()
         {

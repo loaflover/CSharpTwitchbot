@@ -28,6 +28,7 @@ namespace BotApp
             this.channel = Console.ReadLine();
             Console.WriteLine("insert Oauth key:");
             this.Oauth = Console.ReadLine();
+            registry.set_config_option("key", this.Oauth);
             this.creds = new ConnectionCredentials(channel, Oauth);
 
 
