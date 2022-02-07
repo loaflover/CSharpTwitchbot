@@ -7,4 +7,4 @@ a simple c# based bot. based on a video by "Hi I'm Mike". thanks so much to him,
 
 [Dev Team Discord](https://discord.gg/P22tFkjTm3)
 
-[Hi I'm Mikes Video] (https://www.youtube.com/watch?v=lK_XilBIw5A)
+[Hi I'm Mikes Video](https://www.youtube.com/watch?v=lK_XilBIw5A)
